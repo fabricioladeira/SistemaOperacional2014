@@ -68,7 +68,7 @@ namespace Escalonamento
         {
 
             //Pegar o processo de maior prioridade
-            int processoIndex = GetProcessoMaior();
+            int processoIndex = GetIndexProcessoMaior();
 
 
             //Pega Total do Tempo de Execucao
@@ -78,14 +78,18 @@ namespace Escalonamento
                 //a cada dois laços do contador de tempo diminui 1 da prioridade do processo em execução ou seja o de maior prioridade
                if(contadorTempo % 2 == 0)
                {
-                   listaProcessos[processoIndex].Prioridade--;                 
-               }              
+                   listaProcessos[processoIndex].Prioridade--;
 
+                   int tmpIndex = GetIndexProcessoMaior();
+                   if (tmpIndex != processoIndex)
+                   {
+                       //Troca o processo
+                       processoIndex = tmpIndex;
+                   }
+               }            
 
                 // Verifica se não tem um processo ativo com mais prioridade que ele, se sim coloca ele em espera somando os tempo de espera dele, ecomeça o fluxo com o maior
-
-
-
+                SomaEspera(processoIndex);
                 contadorTempo++;
                 DataBind();
             }           
@@ -95,10 +99,27 @@ namespace Escalonamento
 
 
         /// <summary>
+        /// Soma tempo de espera nos demais processos
+        /// </summary>
+        /// <param name="indexProcessoExecutando"></param>
+        private void SomaEspera(int indexProcessoExecutando)
+        {
+            int index = 0;
+            foreach (var p in listaProcessos)
+            {
+                if (index != indexProcessoExecutando && p.Ativo)
+                    listaProcessos[index].Espera++;
+
+                index++;
+            }
+        }
+
+
+        /// <summary>
         /// Retorna maior processo ativo
         /// </summary>
         /// <returns></returns>
-        private int GetProcessoMaior()
+        private int GetIndexProcessoMaior()
         {
             int index = 0;
             Processo result = null;
