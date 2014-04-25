@@ -31,8 +31,9 @@ namespace Escalonamento
 
         #region ---- Algoritimo Prioridades
 
+        private int contadorTempo = 0;
         private int id = 0;
-        private List<Processo> lista = new List<Processo>();
+        private List<Processo> listaProcessos = new List<Processo>();
 
         public Form1()
         {
@@ -43,13 +44,14 @@ namespace Escalonamento
         {
             id++;
 
-            lista.Add(new Processo()
+            listaProcessos.Add(new Processo()
             {
                 Id = id,
                 NomeProcesso = string.Format("P{0}", id),
                 Prioridade = Convert.ToInt32(this.cboPrioridade.Text.ToString()),
                 TempoExecucao = Convert.ToInt32(this.cboTempoExecucao.Text.ToString()),
-                Inicio = System.DateTime.Now
+                Inicio = System.DateTime.Now,
+                Ativo = true
             });
 
             DataBind();
@@ -59,12 +61,74 @@ namespace Escalonamento
         private void DataBind()
         {
             this.dgvProcessos.DataSource = null;
-            this.dgvProcessos.DataSource = lista;       
+            this.dgvProcessos.DataSource = listaProcessos;       
         }
 
         private void btnExecutar_Click(object sender, EventArgs e)
         {
 
+            //Pegar o processo de maior prioridade
+            int processoIndex = GetProcessoMaior();
+
+
+            //Pega Total do Tempo de Execucao
+            while (VerificaProcessoAtivo())
+            {
+
+                //a cada dois laços do contador de tempo diminui 1 da prioridade do processo em execução ou seja o de maior prioridade
+               if(contadorTempo % 2 == 0)
+               {
+                   listaProcessos[processoIndex].Prioridade--;                 
+               }              
+
+
+                // Verifica se não tem um processo ativo com mais prioridade que ele, se sim coloca ele em espera somando os tempo de espera dele, ecomeça o fluxo com o maior
+
+
+
+                contadorTempo++;
+                DataBind();
+            }           
+
+        }
+
+
+
+        /// <summary>
+        /// Retorna maior processo ativo
+        /// </summary>
+        /// <returns></returns>
+        private int GetProcessoMaior()
+        {
+            int index = 0;
+            Processo result = null;
+            foreach (var p in listaProcessos)
+            {
+                if (result == null || (result != null && result.Prioridade < p.Prioridade && p.Ativo))
+                    break;
+
+                index++;
+            }
+            return index;
+        }
+
+
+        /// <summary>
+        /// Verfica se na lista ainda tem processos ativos
+        /// </summary>
+        /// <returns></returns>
+        private bool VerificaProcessoAtivo()
+        {
+            bool ativo = false;
+            foreach (var item in listaProcessos)
+            {
+                if(item.Ativo)
+                {
+                    ativo = true;
+                    break;
+                }
+            }
+            return ativo;
         }
 
 
@@ -73,6 +137,8 @@ namespace Escalonamento
 
 
         #region ---- Round Robin ou Circular
+
+
 
 
         #endregion

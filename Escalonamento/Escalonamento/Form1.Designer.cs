@@ -32,7 +32,6 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cboTempoExecucao = new System.Windows.Forms.ComboBox();
             this.cboPrioridade = new System.Windows.Forms.ComboBox();
@@ -41,6 +40,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.btnExecutar = new System.Windows.Forms.Button();
             this.dgvProcessos = new System.Windows.Forms.DataGridView();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
             this.Processo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Inicio = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -48,6 +48,7 @@
             this.colPrioridade = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTempoExecucao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTempoEspera = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colAtivo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -99,16 +100,6 @@
             this.tabPage3.Text = "Prioridade";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // tabPage4
-            // 
-            this.tabPage4.Location = new System.Drawing.Point(4, 22);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(784, 401);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "Round Robin ou Circular";
-            this.tabPage4.UseVisualStyleBackColor = true;
-            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.cboTempoExecucao);
@@ -157,6 +148,7 @@
             this.btnAdicionarProcesso.TabIndex = 13;
             this.btnAdicionarProcesso.Text = "Adicionar Processo";
             this.btnAdicionarProcesso.UseVisualStyleBackColor = true;
+            this.btnAdicionarProcesso.Click += new System.EventHandler(this.btnAdicionarProcesso_Click);
             // 
             // label2
             // 
@@ -196,11 +188,22 @@
             this.Fim,
             this.colPrioridade,
             this.colTempoExecucao,
-            this.colTempoEspera});
+            this.colTempoEspera,
+            this.colAtivo});
             this.dgvProcessos.Location = new System.Drawing.Point(7, 89);
             this.dgvProcessos.Name = "dgvProcessos";
             this.dgvProcessos.Size = new System.Drawing.Size(771, 277);
             this.dgvProcessos.TabIndex = 14;
+            // 
+            // tabPage4
+            // 
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(784, 401);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "Round Robin ou Circular";
+            this.tabPage4.UseVisualStyleBackColor = true;
             // 
             // Processo
             // 
@@ -245,6 +248,12 @@
             this.colTempoEspera.HeaderText = "Espera";
             this.colTempoEspera.Name = "colTempoEspera";
             // 
+            // colAtivo
+            // 
+            this.colAtivo.DataPropertyName = "Ativo";
+            this.colAtivo.HeaderText = "Ativo";
+            this.colAtivo.Name = "colAtivo";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -276,6 +285,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnExecutar;
         private System.Windows.Forms.DataGridView dgvProcessos;
+        private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Processo;
         private System.Windows.Forms.DataGridViewTextBoxColumn colId;
         private System.Windows.Forms.DataGridViewTextBoxColumn Inicio;
@@ -283,7 +293,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colPrioridade;
         private System.Windows.Forms.DataGridViewTextBoxColumn colTempoExecucao;
         private System.Windows.Forms.DataGridViewTextBoxColumn colTempoEspera;
-        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colAtivo;
     }
 }
 
