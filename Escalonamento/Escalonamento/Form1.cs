@@ -40,7 +40,8 @@ namespace Escalonamento
 
         private void DataBind()
         {
-            this.dgvProcessos.DataSource = lista;
+            this.dgvProcessos.DataSource = null;
+            this.dgvProcessos.DataSource = lista;       
         }
 
     }

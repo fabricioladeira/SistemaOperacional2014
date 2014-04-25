@@ -41,6 +41,7 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnAdicionarProcesso = new System.Windows.Forms.Button();
             this.Processo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Inicio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Fim = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPrioridade = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -132,6 +133,7 @@
             this.dgvProcessos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProcessos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Processo,
+            this.colId,
             this.Inicio,
             this.Fim,
             this.colPrioridade,
@@ -172,6 +174,13 @@
             this.Processo.HeaderText = "Processo";
             this.Processo.Name = "Processo";
             // 
+            // colId
+            // 
+            this.colId.DataPropertyName = "Id";
+            this.colId.HeaderText = "Id";
+            this.colId.Name = "colId";
+            this.colId.Visible = false;
+            // 
             // Inicio
             // 
             this.Inicio.DataPropertyName = "Inicio";
@@ -198,6 +207,7 @@
             // 
             // colTempoEspera
             // 
+            this.colTempoEspera.DataPropertyName = "Espera";
             this.colTempoEspera.HeaderText = "Espera";
             this.colTempoEspera.Name = "colTempoEspera";
             // 
@@ -242,6 +252,7 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnAdicionarProcesso;
         private System.Windows.Forms.DataGridViewTextBoxColumn Processo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colId;
         private System.Windows.Forms.DataGridViewTextBoxColumn Inicio;
         private System.Windows.Forms.DataGridViewTextBoxColumn Fim;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPrioridade;
