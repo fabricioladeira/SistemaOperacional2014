@@ -16,10 +16,14 @@ namespace Escalonamento
         #region ---- FIFO (First In First Out)
 
 
+
+
         #endregion
 
 
         #region ---- (Shortest Job First)
+
+
 
 
         #endregion
