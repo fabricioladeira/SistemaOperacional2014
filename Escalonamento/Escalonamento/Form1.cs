@@ -83,7 +83,7 @@ namespace Escalonamento
                    int tmpIndex = GetIndexProcessoMaior();
                    if (tmpIndex != processoIndex)
                    {
-                       //Troca o processo
+                       //Troca o processo 
                        processoIndex = tmpIndex;
                    }
                }            
