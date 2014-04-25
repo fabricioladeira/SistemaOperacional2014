@@ -13,6 +13,20 @@ namespace Escalonamento
     public partial class Form1 : Form
     {
 
+        #region ---- FIFO (First In First Out)
+
+
+        #endregion
+
+
+        #region ---- (Shortest Job First)
+
+
+        #endregion
+
+
+        #region ---- Algoritimo Prioridades
+
         private int id = 0;
         private List<Processo> lista = new List<Processo>();
 
@@ -29,8 +43,8 @@ namespace Escalonamento
             {
                 Id = id,
                 NomeProcesso = string.Format("P{0}", id),
-                Prioridade = this.prioridade.Value,
-                TempoExecucao = this.tempExecucao.Value,
+                Prioridade = Convert.ToInt32(this.cboPrioridade.Text.ToString()),
+                TempoExecucao = Convert.ToInt32(this.cboTempoExecucao.Text.ToString()),
                 Inicio = System.DateTime.Now
             });
 
@@ -43,6 +57,23 @@ namespace Escalonamento
             this.dgvProcessos.DataSource = null;
             this.dgvProcessos.DataSource = lista;       
         }
+
+        private void btnExecutar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+        #endregion
+
+
+
+        #region ---- Round Robin ou Circular
+
+
+        #endregion
+
+
 
     }
 }
