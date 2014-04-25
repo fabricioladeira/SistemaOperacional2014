@@ -11,8 +11,8 @@ namespace Escalonamento
         public string NomeProcesso { get; set; }
         public int Prioridade { get; set; }
         public int TempoExecucao { get; set; }
-        public DateTime Inicio { get; set; }
-        public DateTime Fim { get; set; }
+        public int Inicio { get; set; }
+        public int Fim { get; set; }
         public int Espera { get; set; }
         public int Id { get; set; }
         public bool Ativo { get; set; }

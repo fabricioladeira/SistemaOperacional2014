@@ -40,7 +40,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.btnExecutar = new System.Windows.Forms.Button();
             this.dgvProcessos = new System.Windows.Forms.DataGridView();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
             this.Processo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Inicio = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,6 +48,7 @@
             this.colTempoExecucao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTempoEspera = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colAtivo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -64,7 +64,7 @@
             this.tabControl1.Location = new System.Drawing.Point(12, 3);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(792, 427);
+            this.tabControl1.Size = new System.Drawing.Size(866, 427);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -95,7 +95,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(784, 401);
+            this.tabPage3.Size = new System.Drawing.Size(858, 401);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Prioridade";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -109,7 +109,7 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Location = new System.Drawing.Point(7, 6);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(771, 77);
+            this.groupBox1.Size = new System.Drawing.Size(845, 77);
             this.groupBox1.TabIndex = 15;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Adicionar Processos";
@@ -142,7 +142,7 @@
             // 
             // btnAdicionarProcesso
             // 
-            this.btnAdicionarProcesso.Location = new System.Drawing.Point(614, 48);
+            this.btnAdicionarProcesso.Location = new System.Drawing.Point(688, 49);
             this.btnAdicionarProcesso.Name = "btnAdicionarProcesso";
             this.btnAdicionarProcesso.Size = new System.Drawing.Size(151, 23);
             this.btnAdicionarProcesso.TabIndex = 13;
@@ -170,7 +170,7 @@
             // 
             // btnExecutar
             // 
-            this.btnExecutar.Location = new System.Drawing.Point(703, 372);
+            this.btnExecutar.Location = new System.Drawing.Point(777, 372);
             this.btnExecutar.Name = "btnExecutar";
             this.btnExecutar.Size = new System.Drawing.Size(75, 23);
             this.btnExecutar.TabIndex = 13;
@@ -192,18 +192,8 @@
             this.colAtivo});
             this.dgvProcessos.Location = new System.Drawing.Point(7, 89);
             this.dgvProcessos.Name = "dgvProcessos";
-            this.dgvProcessos.Size = new System.Drawing.Size(771, 277);
+            this.dgvProcessos.Size = new System.Drawing.Size(845, 277);
             this.dgvProcessos.TabIndex = 14;
-            // 
-            // tabPage4
-            // 
-            this.tabPage4.Location = new System.Drawing.Point(4, 22);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(784, 401);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "Round Robin ou Circular";
-            this.tabPage4.UseVisualStyleBackColor = true;
             // 
             // Processo
             // 
@@ -254,11 +244,21 @@
             this.colAtivo.HeaderText = "Ativo";
             this.colAtivo.Name = "colAtivo";
             // 
+            // tabPage4
+            // 
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(784, 401);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "Round Robin ou Circular";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(810, 434);
+            this.ClientSize = new System.Drawing.Size(890, 434);
             this.Controls.Add(this.tabControl1);
             this.Name = "Form1";
             this.Text = "Escalonamento";

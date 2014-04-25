@@ -38,6 +38,38 @@ namespace Escalonamento
         public Form1()
         {
             InitializeComponent();
+
+
+            listaProcessos.Add(new Processo()
+            {
+                Id = 1,
+                NomeProcesso = "P1",
+                Prioridade = 5,
+                TempoExecucao = 10,              
+                Ativo = true
+            });
+
+            listaProcessos.Add(new Processo()
+            {
+                Id = 2,
+                NomeProcesso = "P2",
+                Prioridade = 2,
+                TempoExecucao = 6,                
+                Ativo = true
+            });
+
+
+            listaProcessos.Add(new Processo()
+            {
+                Id = 3,
+                NomeProcesso = "P3",
+                Prioridade = 4,
+                TempoExecucao = 8,               
+                Ativo = true
+            });
+
+            DataBind();
+
         }
 
         private void btnAdicionarProcesso_Click(object sender, EventArgs e)
@@ -49,8 +81,7 @@ namespace Escalonamento
                 Id = id,
                 NomeProcesso = string.Format("P{0}", id),
                 Prioridade = Convert.ToInt32(this.cboPrioridade.Text.ToString()),
-                TempoExecucao = Convert.ToInt32(this.cboTempoExecucao.Text.ToString()),
-                Inicio = System.DateTime.Now,
+                TempoExecucao = Convert.ToInt32(this.cboTempoExecucao.Text.ToString()),            
                 Ativo = true
             });
 
@@ -61,7 +92,8 @@ namespace Escalonamento
         private void DataBind()
         {
             this.dgvProcessos.DataSource = null;
-            this.dgvProcessos.DataSource = listaProcessos;       
+            this.dgvProcessos.DataSource = listaProcessos;
+            this.dgvProcessos.Refresh();
         }
 
         private void btnExecutar_Click(object sender, EventArgs e)
@@ -74,25 +106,40 @@ namespace Escalonamento
             //Pega Total do Tempo de Execucao
             while (VerificaProcessoAtivo())
             {
+                //Marca Inicio
+                if (listaProcessos[processoIndex].Inicio == 0)
+                    listaProcessos[processoIndex].Inicio = contadorTempo;
+
+                //Marca FIM              
+                listaProcessos[processoIndex].Fim = contadorTempo;
 
                 //a cada dois laços do contador de tempo diminui 1 da prioridade do processo em execução ou seja o de maior prioridade
-               if(contadorTempo % 2 == 0)
-               {
-                   listaProcessos[processoIndex].Prioridade--;
+                if (contadorTempo % 2 == 0)
+                {
+                    listaProcessos[processoIndex].Prioridade--;                   
 
-                   int tmpIndex = GetIndexProcessoMaior();
-                   if (tmpIndex != processoIndex)
-                   {
-                       //Troca o processo 
-                       processoIndex = tmpIndex;
-                   }
-               }            
+                    // Verifica se não tem um processo ativo com mais prioridade que ele, se sim coloca ele em espera somando os tempo de espera dele, ecomeça o fluxo com o maior
+                    int tmpIndex = GetIndexProcessoMaior();
+                    if (tmpIndex != processoIndex)
+                    {
+                        //Troca o processo 
+                        processoIndex = tmpIndex;
+                    }
+                }
 
-                // Verifica se não tem um processo ativo com mais prioridade que ele, se sim coloca ele em espera somando os tempo de espera dele, ecomeça o fluxo com o maior
+                
+                //Verifica se o tempo de execução dele já acabou e pega o próximo processo com mais prioridade
+                if (listaProcessos[processoIndex].TempoExecucao <= (listaProcessos[processoIndex].Fim - listaProcessos[processoIndex].Inicio))
+                {
+                    //Inativa Processo
+                    listaProcessos[processoIndex].Ativo = false;                   
+                    processoIndex = GetIndexProcessoMaior();
+                }               
+
                 SomaEspera(processoIndex);
                 contadorTempo++;
                 DataBind();
-            }           
+            }
 
         }
 
@@ -121,16 +168,19 @@ namespace Escalonamento
         /// <returns></returns>
         private int GetIndexProcessoMaior()
         {
+            int indexReturn = 0;
             int index = 0;
             Processo result = null;
             foreach (var p in listaProcessos)
             {
                 if (result == null || (result != null && result.Prioridade < p.Prioridade && p.Ativo))
-                    break;
-
+                {
+                    indexReturn = index;
+                    result = p;
+                }
                 index++;
             }
-            return index;
+            return indexReturn;
         }
 
 
@@ -143,7 +193,7 @@ namespace Escalonamento
             bool ativo = false;
             foreach (var item in listaProcessos)
             {
-                if(item.Ativo)
+                if (item.Ativo)
                 {
                     ativo = true;
                     break;
