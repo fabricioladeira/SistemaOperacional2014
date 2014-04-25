@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.btnExecutar = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.tempExecucao = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
@@ -38,19 +37,20 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.fatiaTempoDisponivel = new System.Windows.Forms.NumericUpDown();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvProcessos = new System.Windows.Forms.DataGridView();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnAdicionarProcesso = new System.Windows.Forms.Button();
             this.Processo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Inicio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Fim = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPrioridade = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTempoExecucao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTempoEspera = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.tempExecucao)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.prioridade)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.qtdProcessos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fatiaTempoDisponivel)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProcessos)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -62,15 +62,6 @@
             this.btnExecutar.TabIndex = 0;
             this.btnExecutar.Text = "Executar";
             this.btnExecutar.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(541, 49);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(124, 23);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Adicionar Processo";
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // label2
             // 
@@ -136,54 +127,24 @@
             this.fatiaTempoDisponivel.Size = new System.Drawing.Size(57, 20);
             this.fatiaTempoDisponivel.TabIndex = 9;
             // 
-            // dataGridView1
+            // dgvProcessos
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvProcessos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProcessos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Processo,
             this.Inicio,
             this.Fim,
             this.colPrioridade,
             this.colTempoExecucao,
             this.colTempoEspera});
-            this.dataGridView1.Location = new System.Drawing.Point(22, 127);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(671, 150);
-            this.dataGridView1.TabIndex = 11;
-            // 
-            // Processo
-            // 
-            this.Processo.HeaderText = "Processo";
-            this.Processo.Name = "Processo";
-            // 
-            // Inicio
-            // 
-            this.Inicio.HeaderText = "Inicio";
-            this.Inicio.Name = "Inicio";
-            // 
-            // Fim
-            // 
-            this.Fim.HeaderText = "Fim";
-            this.Fim.Name = "Fim";
-            // 
-            // colPrioridade
-            // 
-            this.colPrioridade.HeaderText = "Prioridade";
-            this.colPrioridade.Name = "colPrioridade";
-            // 
-            // colTempoExecucao
-            // 
-            this.colTempoExecucao.HeaderText = "Tempo Execução";
-            this.colTempoExecucao.Name = "colTempoExecucao";
-            // 
-            // colTempoEspera
-            // 
-            this.colTempoEspera.HeaderText = "Espera";
-            this.colTempoEspera.Name = "colTempoEspera";
+            this.dgvProcessos.Location = new System.Drawing.Point(22, 127);
+            this.dgvProcessos.Name = "dgvProcessos";
+            this.dgvProcessos.Size = new System.Drawing.Size(671, 150);
+            this.dgvProcessos.TabIndex = 11;
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.btnAdicionarProcesso);
             this.groupBox1.Controls.Add(this.tempExecucao);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.prioridade);
@@ -195,13 +156,58 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Adicionar Processos";
             // 
+            // btnAdicionarProcesso
+            // 
+            this.btnAdicionarProcesso.Location = new System.Drawing.Point(514, 48);
+            this.btnAdicionarProcesso.Name = "btnAdicionarProcesso";
+            this.btnAdicionarProcesso.Size = new System.Drawing.Size(151, 23);
+            this.btnAdicionarProcesso.TabIndex = 13;
+            this.btnAdicionarProcesso.Text = "Adicionar Processo";
+            this.btnAdicionarProcesso.UseVisualStyleBackColor = true;
+            this.btnAdicionarProcesso.Click += new System.EventHandler(this.btnAdicionarProcesso_Click);
+            // 
+            // Processo
+            // 
+            this.Processo.DataPropertyName = "NomeProcesso";
+            this.Processo.HeaderText = "Processo";
+            this.Processo.Name = "Processo";
+            // 
+            // Inicio
+            // 
+            this.Inicio.DataPropertyName = "Inicio";
+            this.Inicio.HeaderText = "Inicio";
+            this.Inicio.Name = "Inicio";
+            // 
+            // Fim
+            // 
+            this.Fim.DataPropertyName = "Fim";
+            this.Fim.HeaderText = "Fim";
+            this.Fim.Name = "Fim";
+            // 
+            // colPrioridade
+            // 
+            this.colPrioridade.DataPropertyName = "Prioridade";
+            this.colPrioridade.HeaderText = "Prioridade";
+            this.colPrioridade.Name = "colPrioridade";
+            // 
+            // colTempoExecucao
+            // 
+            this.colTempoExecucao.DataPropertyName = "TempoExecucao";
+            this.colTempoExecucao.HeaderText = "Tempo Execução";
+            this.colTempoExecucao.Name = "colTempoExecucao";
+            // 
+            // colTempoEspera
+            // 
+            this.colTempoEspera.HeaderText = "Espera";
+            this.colTempoEspera.Name = "colTempoEspera";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(721, 336);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvProcessos);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.fatiaTempoDisponivel);
             this.Controls.Add(this.label1);
@@ -213,7 +219,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.prioridade)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.qtdProcessos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fatiaTempoDisponivel)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProcessos)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -224,7 +230,6 @@
         #endregion
 
         private System.Windows.Forms.Button btnExecutar;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.NumericUpDown tempExecucao;
         private System.Windows.Forms.Label label3;
@@ -233,14 +238,15 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.NumericUpDown fatiaTempoDisponivel;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvProcessos;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button btnAdicionarProcesso;
         private System.Windows.Forms.DataGridViewTextBoxColumn Processo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Inicio;
         private System.Windows.Forms.DataGridViewTextBoxColumn Fim;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPrioridade;
         private System.Windows.Forms.DataGridViewTextBoxColumn colTempoExecucao;
         private System.Windows.Forms.DataGridViewTextBoxColumn colTempoEspera;
-        private System.Windows.Forms.GroupBox groupBox1;
     }
 }
 

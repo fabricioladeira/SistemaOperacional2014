@@ -12,9 +12,36 @@ namespace Escalonamento
 {
     public partial class Form1 : Form
     {
+
+        private int id = 0;
+        private List<Processo> lista = new List<Processo>();
+
         public Form1()
         {
             InitializeComponent();
         }
+
+        private void btnAdicionarProcesso_Click(object sender, EventArgs e)
+        {
+            id++;
+
+            lista.Add(new Processo()
+            {
+                Id = id,
+                NomeProcesso = string.Format("P{0}", id),
+                Prioridade = this.prioridade.Value,
+                TempoExecucao = this.tempExecucao.Value,
+                Inicio = System.DateTime.Now
+            });
+
+            DataBind();
+        }
+
+
+        private void DataBind()
+        {
+            this.dgvProcessos.DataSource = lista;
+        }
+
     }
 }
