@@ -31,7 +31,7 @@ namespace Escalonamento
 
         #region ---- Algoritimo Prioridades
 
-        private int contadorTempo = 0;
+        private int contadorTempo = 1;
         private int id = 0;
         private List<Processo> listaProcessos = new List<Processo>();
 
@@ -173,11 +173,12 @@ namespace Escalonamento
             Processo result = null;
             foreach (var p in listaProcessos)
             {
-                if (result == null || (result != null && result.Prioridade < p.Prioridade && p.Ativo))
+                if ((result == null && p.Ativo) || (result != null && result.Prioridade < p.Prioridade && p.Ativo))
                 {
                     indexReturn = index;
                     result = p;
                 }
+                
                 index++;
             }
             return indexReturn;
