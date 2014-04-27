@@ -107,6 +107,14 @@ namespace Escalonamento
                 //Decrementa o tempo de execução
                 listaProcessos[i].TempoExecucao--;
 
+                //Marca Inicio
+                if (listaProcessos[i].Inicio == 0)
+                    listaProcessos[i].Inicio = contadorTempo;
+
+                //Marca FIM              
+                listaProcessos[i].Fim = contadorTempo;
+
+
                 //Verifica se o tempo de execucao chegou a zero e inativa o processo
                 if (listaProcessos[i].TempoExecucao == 0)
                     listaProcessos[i].Ativo = false;
@@ -116,6 +124,13 @@ namespace Escalonamento
                     //Pega proximo da fila
                     int tmp = i + 1;
                     i = GetIndexProcessoAtivo(tmp);
+
+                    //Valida novamente todo array para verificar se não tem nenhum antes ativo.
+                    if(i == -1 )
+                    {
+                        i = GetIndexProcessoAtivo();
+                    }
+
                 }
 
                 contadorTempo++;
@@ -189,6 +204,24 @@ namespace Escalonamento
 
             return ativo;
         }
+
+
+        /// <summary>
+        /// Soma tempo de espera nos demais processos
+        /// </summary>
+        /// <param name="indexProcessoExecutando"></param>
+        private void SomaEspera(int indexProcessoExecutando)
+        {
+            int index = 0;
+            foreach (var p in listaProcessos)
+            {
+                if (index != indexProcessoExecutando && p.Ativo)
+                    listaProcessos[index].Espera++;
+
+                index++;
+            }
+        }
+
 
 
 

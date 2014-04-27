@@ -82,6 +82,7 @@
             this.colAtivo});
             this.dgvProcessos.Location = new System.Drawing.Point(3, 95);
             this.dgvProcessos.Name = "dgvProcessos";
+            this.dgvProcessos.ReadOnly = true;
             this.dgvProcessos.Size = new System.Drawing.Size(845, 277);
             this.dgvProcessos.TabIndex = 22;
             // 

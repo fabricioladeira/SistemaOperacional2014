@@ -35,7 +35,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.dgvProcessos = new System.Windows.Forms.DataGridView();
-            this.btnExecutar = new System.Windows.Forms.Button();
             this.Processo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PrioridadeDefault = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,6 +44,7 @@
             this.colTempoExecucao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTempoEspera = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colAtivo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnExecutar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProcessos)).BeginInit();
             this.SuspendLayout();
@@ -136,8 +136,73 @@
             this.colAtivo});
             this.dgvProcessos.Location = new System.Drawing.Point(3, 86);
             this.dgvProcessos.Name = "dgvProcessos";
+            this.dgvProcessos.ReadOnly = true;
             this.dgvProcessos.Size = new System.Drawing.Size(845, 277);
             this.dgvProcessos.TabIndex = 16;
+            // 
+            // Processo
+            // 
+            this.Processo.DataPropertyName = "NomeProcesso";
+            this.Processo.HeaderText = "Processo";
+            this.Processo.Name = "Processo";
+            this.Processo.ReadOnly = true;
+            // 
+            // colId
+            // 
+            this.colId.DataPropertyName = "Id";
+            this.colId.HeaderText = "Id";
+            this.colId.Name = "colId";
+            this.colId.ReadOnly = true;
+            this.colId.Visible = false;
+            // 
+            // PrioridadeDefault
+            // 
+            this.PrioridadeDefault.DataPropertyName = "PrioridadeDefault";
+            this.PrioridadeDefault.HeaderText = "Prioridade Default";
+            this.PrioridadeDefault.Name = "PrioridadeDefault";
+            this.PrioridadeDefault.ReadOnly = true;
+            // 
+            // colPrioridade
+            // 
+            this.colPrioridade.DataPropertyName = "Prioridade";
+            this.colPrioridade.HeaderText = "Prioridade";
+            this.colPrioridade.Name = "colPrioridade";
+            this.colPrioridade.ReadOnly = true;
+            // 
+            // Inicio
+            // 
+            this.Inicio.DataPropertyName = "Inicio";
+            this.Inicio.HeaderText = "Inicio";
+            this.Inicio.Name = "Inicio";
+            this.Inicio.ReadOnly = true;
+            // 
+            // Fim
+            // 
+            this.Fim.DataPropertyName = "Fim";
+            this.Fim.HeaderText = "Fim";
+            this.Fim.Name = "Fim";
+            this.Fim.ReadOnly = true;
+            // 
+            // colTempoExecucao
+            // 
+            this.colTempoExecucao.DataPropertyName = "TempoExecucao";
+            this.colTempoExecucao.HeaderText = "Tempo Execução";
+            this.colTempoExecucao.Name = "colTempoExecucao";
+            this.colTempoExecucao.ReadOnly = true;
+            // 
+            // colTempoEspera
+            // 
+            this.colTempoEspera.DataPropertyName = "Espera";
+            this.colTempoEspera.HeaderText = "Espera";
+            this.colTempoEspera.Name = "colTempoEspera";
+            this.colTempoEspera.ReadOnly = true;
+            // 
+            // colAtivo
+            // 
+            this.colAtivo.DataPropertyName = "Ativo";
+            this.colAtivo.HeaderText = "Ativo";
+            this.colAtivo.Name = "colAtivo";
+            this.colAtivo.ReadOnly = true;
             // 
             // btnExecutar
             // 
@@ -148,61 +213,6 @@
             this.btnExecutar.Text = "Executar";
             this.btnExecutar.UseVisualStyleBackColor = true;
             this.btnExecutar.Click += new System.EventHandler(this.btnExecutar_Click);
-            // 
-            // Processo
-            // 
-            this.Processo.DataPropertyName = "NomeProcesso";
-            this.Processo.HeaderText = "Processo";
-            this.Processo.Name = "Processo";
-            // 
-            // colId
-            // 
-            this.colId.DataPropertyName = "Id";
-            this.colId.HeaderText = "Id";
-            this.colId.Name = "colId";
-            this.colId.Visible = false;
-            // 
-            // PrioridadeDefault
-            // 
-            this.PrioridadeDefault.DataPropertyName = "PrioridadeDefault";
-            this.PrioridadeDefault.HeaderText = "Prioridade Default";
-            this.PrioridadeDefault.Name = "PrioridadeDefault";
-            // 
-            // colPrioridade
-            // 
-            this.colPrioridade.DataPropertyName = "Prioridade";
-            this.colPrioridade.HeaderText = "Prioridade";
-            this.colPrioridade.Name = "colPrioridade";
-            // 
-            // Inicio
-            // 
-            this.Inicio.DataPropertyName = "Inicio";
-            this.Inicio.HeaderText = "Inicio";
-            this.Inicio.Name = "Inicio";
-            // 
-            // Fim
-            // 
-            this.Fim.DataPropertyName = "Fim";
-            this.Fim.HeaderText = "Fim";
-            this.Fim.Name = "Fim";
-            // 
-            // colTempoExecucao
-            // 
-            this.colTempoExecucao.DataPropertyName = "TempoExecucao";
-            this.colTempoExecucao.HeaderText = "Tempo Execução";
-            this.colTempoExecucao.Name = "colTempoExecucao";
-            // 
-            // colTempoEspera
-            // 
-            this.colTempoEspera.DataPropertyName = "Espera";
-            this.colTempoEspera.HeaderText = "Espera";
-            this.colTempoEspera.Name = "colTempoEspera";
-            // 
-            // colAtivo
-            // 
-            this.colAtivo.DataPropertyName = "Ativo";
-            this.colAtivo.HeaderText = "Ativo";
-            this.colAtivo.Name = "colAtivo";
             // 
             // ucPrioridade
             // 
