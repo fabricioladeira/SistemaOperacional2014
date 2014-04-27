@@ -16,33 +16,36 @@ namespace Escalonamento
         {
             InitializeComponent();
 
-             listaProcessos.Add(new Processo()
-            {
-                Id = 1,
-                NomeProcesso = "P1",
-                Prioridade = 5,
-                TempoExecucao = 10,              
-                Ativo = true
-            });
+            // listaProcessos.Add(new Processo()
+            //{
+            //    Id = 1,
+            //    NomeProcesso = "P1",
+            //    PrioridadeDefault = 5,
+            //    Prioridade = 5,
+            //    TempoExecucao = 10,              
+            //    Ativo = true
+            //});
 
-            listaProcessos.Add(new Processo()
-            {
-                Id = 2,
-                NomeProcesso = "P2",
-                Prioridade = 2,
-                TempoExecucao = 6,                
-                Ativo = true
-            });
+            //listaProcessos.Add(new Processo()
+            //{
+            //    Id = 2,
+            //    NomeProcesso = "P2",
+            //    PrioridadeDefault = 2,
+            //    Prioridade = 2,
+            //    TempoExecucao = 6,                
+            //    Ativo = true
+            //});
 
 
-            listaProcessos.Add(new Processo()
-            {
-                Id = 3,
-                NomeProcesso = "P3",
-                Prioridade = 4,
-                TempoExecucao = 8,               
-                Ativo = true
-            });
+            //listaProcessos.Add(new Processo()
+            //{
+            //    Id = 3,
+            //    NomeProcesso = "P3",
+            //    PrioridadeDefault = 4,
+            //    Prioridade = 4,
+            //    TempoExecucao = 8,               
+            //    Ativo = true
+            //});
 
             DataBind();
         }
@@ -50,11 +53,21 @@ namespace Escalonamento
         
         #region ---- Algoritimo Prioridades
 
+
+        //Contador do tempo
         private int contadorTempo = 1;
+
+        //Controlador para os ids dos processos criados
         private int id = 0;
+
+        //Lista de processos na memória
         private List<Processo> listaProcessos = new List<Processo>();
 
-
+        /// <summary>
+        /// Adiciona processo na lista
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAdicionarProcesso_Click(object sender, EventArgs e)
         {
             id++;
@@ -63,6 +76,7 @@ namespace Escalonamento
             {
                 Id = id,
                 NomeProcesso = string.Format("P{0}", id),
+                PrioridadeDefault = Convert.ToInt32(this.cboPrioridade.Text.ToString()),
                 Prioridade = Convert.ToInt32(this.cboPrioridade.Text.ToString()),
                 TempoExecucao = Convert.ToInt32(this.cboTempoExecucao.Text.ToString()),            
                 Ativo = true
@@ -71,7 +85,9 @@ namespace Escalonamento
             DataBind();
         }
 
-
+        /// <summary>
+        /// Coloca dados da lista de processos no Grid
+        /// </summary>
         private void DataBind()
         {
             this.dgvProcessos.DataSource = null;
@@ -79,8 +95,33 @@ namespace Escalonamento
             this.dgvProcessos.Refresh();
         }
 
+
+        /// <summary>
+        /// Zera resultados para rodar denvo
+        /// </summary>
+        private void ZerarResultados()
+        {
+            for (int i = 0; i < listaProcessos.Count; i++)
+            {
+                listaProcessos[i].Ativo = true;
+                listaProcessos[i].Espera = 0;
+                listaProcessos[i].Inicio = 0;
+                listaProcessos[i].Fim = 0;
+                listaProcessos[i].Prioridade = listaProcessos[i].PrioridadeDefault;
+            }
+        }
+
+
+        /// <summary>
+        /// Executa algoritimo
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnExecutar_Click(object sender, EventArgs e)
         {
+
+            //Zera os resultados para caso o usuário clicar novamento no botão executar ele ezecutar novaente o algoritimo
+            ZerarResultados();
 
             //Pegar o processo de maior prioridade
             int processoIndex = GetIndexProcessoMaior();
@@ -99,7 +140,8 @@ namespace Escalonamento
                 //a cada dois laços do contador de tempo diminui 1 da prioridade do processo em execução ou seja o de maior prioridade
                 if (contadorTempo % 2 == 0)
                 {
-                    listaProcessos[processoIndex].Prioridade--;                   
+                    if (listaProcessos[processoIndex].Prioridade > 0)
+                        listaProcessos[processoIndex].Prioridade--;                   
 
                     // Verifica se não tem um processo ativo com mais prioridade que ele, se sim coloca ele em espera somando os tempo de espera dele, ecomeça o fluxo com o maior
                     int tmpIndex = GetIndexProcessoMaior();
@@ -119,8 +161,13 @@ namespace Escalonamento
                     processoIndex = GetIndexProcessoMaior();
                 }               
 
+                //Chama método para atualizar o tempo de espera dos demais processos.
                 SomaEspera(processoIndex);
+
+                //Soma tempo decorrido
                 contadorTempo++;
+
+                //Recarrega Grid
                 DataBind();
             }
 

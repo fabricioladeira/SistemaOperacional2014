@@ -35,15 +35,16 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.dgvProcessos = new System.Windows.Forms.DataGridView();
+            this.btnExecutar = new System.Windows.Forms.Button();
             this.Processo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PrioridadeDefault = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPrioridade = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Inicio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Fim = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPrioridade = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTempoExecucao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTempoEspera = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colAtivo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnExecutar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProcessos)).BeginInit();
             this.SuspendLayout();
@@ -122,9 +123,10 @@
             this.dgvProcessos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Processo,
             this.colId,
+            this.PrioridadeDefault,
+            this.colPrioridade,
             this.Inicio,
             this.Fim,
-            this.colPrioridade,
             this.colTempoExecucao,
             this.colTempoEspera,
             this.colAtivo});
@@ -132,6 +134,16 @@
             this.dgvProcessos.Name = "dgvProcessos";
             this.dgvProcessos.Size = new System.Drawing.Size(845, 277);
             this.dgvProcessos.TabIndex = 16;
+            // 
+            // btnExecutar
+            // 
+            this.btnExecutar.Location = new System.Drawing.Point(691, 369);
+            this.btnExecutar.Name = "btnExecutar";
+            this.btnExecutar.Size = new System.Drawing.Size(157, 23);
+            this.btnExecutar.TabIndex = 18;
+            this.btnExecutar.Text = "Executar";
+            this.btnExecutar.UseVisualStyleBackColor = true;
+            this.btnExecutar.Click += new System.EventHandler(this.btnExecutar_Click);
             // 
             // Processo
             // 
@@ -146,6 +158,18 @@
             this.colId.Name = "colId";
             this.colId.Visible = false;
             // 
+            // PrioridadeDefault
+            // 
+            this.PrioridadeDefault.DataPropertyName = "PrioridadeDefault";
+            this.PrioridadeDefault.HeaderText = "Prioridade Default";
+            this.PrioridadeDefault.Name = "PrioridadeDefault";
+            // 
+            // colPrioridade
+            // 
+            this.colPrioridade.DataPropertyName = "Prioridade";
+            this.colPrioridade.HeaderText = "Prioridade";
+            this.colPrioridade.Name = "colPrioridade";
+            // 
             // Inicio
             // 
             this.Inicio.DataPropertyName = "Inicio";
@@ -157,12 +181,6 @@
             this.Fim.DataPropertyName = "Fim";
             this.Fim.HeaderText = "Fim";
             this.Fim.Name = "Fim";
-            // 
-            // colPrioridade
-            // 
-            this.colPrioridade.DataPropertyName = "Prioridade";
-            this.colPrioridade.HeaderText = "Prioridade";
-            this.colPrioridade.Name = "colPrioridade";
             // 
             // colTempoExecucao
             // 
@@ -181,16 +199,6 @@
             this.colAtivo.DataPropertyName = "Ativo";
             this.colAtivo.HeaderText = "Ativo";
             this.colAtivo.Name = "colAtivo";
-            // 
-            // btnExecutar
-            // 
-            this.btnExecutar.Location = new System.Drawing.Point(691, 369);
-            this.btnExecutar.Name = "btnExecutar";
-            this.btnExecutar.Size = new System.Drawing.Size(157, 23);
-            this.btnExecutar.TabIndex = 18;
-            this.btnExecutar.Text = "Executar";
-            this.btnExecutar.UseVisualStyleBackColor = true;
-            this.btnExecutar.Click += new System.EventHandler(this.btnExecutar_Click);
             // 
             // ucPrioridade
             // 
@@ -217,14 +225,15 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridView dgvProcessos;
+        private System.Windows.Forms.Button btnExecutar;
         private System.Windows.Forms.DataGridViewTextBoxColumn Processo;
         private System.Windows.Forms.DataGridViewTextBoxColumn colId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PrioridadeDefault;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colPrioridade;
         private System.Windows.Forms.DataGridViewTextBoxColumn Inicio;
         private System.Windows.Forms.DataGridViewTextBoxColumn Fim;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colPrioridade;
         private System.Windows.Forms.DataGridViewTextBoxColumn colTempoExecucao;
         private System.Windows.Forms.DataGridViewTextBoxColumn colTempoEspera;
         private System.Windows.Forms.DataGridViewTextBoxColumn colAtivo;
-        private System.Windows.Forms.Button btnExecutar;
     }
 }
