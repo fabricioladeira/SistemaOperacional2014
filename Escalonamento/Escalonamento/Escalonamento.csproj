@@ -53,11 +53,29 @@
     <Compile Include="Processo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ucFifo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucFifo.Designer.cs">
+      <DependentUpon>ucFifo.cs</DependentUpon>
+    </Compile>
     <Compile Include="ucPrioridade.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="ucPrioridade.Designer.cs">
       <DependentUpon>ucPrioridade.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucRoundRobin.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucRoundRobin.Designer.cs">
+      <DependentUpon>ucRoundRobin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucShortestJobFirst.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucShortestJobFirst.Designer.cs">
+      <DependentUpon>ucShortestJobFirst.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -71,8 +89,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ucFifo.resx">
+      <DependentUpon>ucFifo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ucPrioridade.resx">
       <DependentUpon>ucPrioridade.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucRoundRobin.resx">
+      <DependentUpon>ucRoundRobin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucShortestJobFirst.resx">
+      <DependentUpon>ucShortestJobFirst.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

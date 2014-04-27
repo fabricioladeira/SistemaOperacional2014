@@ -34,8 +34,14 @@
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.ucPrioridade1 = new Escalonamento.ucPrioridade();
+            this.ucFifo1 = new Escalonamento.ucFifo();
+            this.ucShortestJobFirst1 = new Escalonamento.ucShortestJobFirst();
+            this.ucRoundRobin1 = new Escalonamento.ucRoundRobin();
             this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
+            this.tabPage4.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -52,20 +58,22 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.ucFifo1);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(858, 401);
+            this.tabPage1.Size = new System.Drawing.Size(867, 415);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "FIFO (First In First Out)";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.ucShortestJobFirst1);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(858, 401);
+            this.tabPage2.Size = new System.Drawing.Size(867, 415);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "(Shortest Job First)";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -83,10 +91,11 @@
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.ucRoundRobin1);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(858, 401);
+            this.tabPage4.Size = new System.Drawing.Size(867, 415);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Round Robin ou Circular";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -98,6 +107,27 @@
             this.ucPrioridade1.Size = new System.Drawing.Size(857, 413);
             this.ucPrioridade1.TabIndex = 0;
             // 
+            // ucFifo1
+            // 
+            this.ucFifo1.Location = new System.Drawing.Point(4, 2);
+            this.ucFifo1.Name = "ucFifo1";
+            this.ucFifo1.Size = new System.Drawing.Size(857, 413);
+            this.ucFifo1.TabIndex = 0;
+            // 
+            // ucShortestJobFirst1
+            // 
+            this.ucShortestJobFirst1.Location = new System.Drawing.Point(4, 3);
+            this.ucShortestJobFirst1.Name = "ucShortestJobFirst1";
+            this.ucShortestJobFirst1.Size = new System.Drawing.Size(857, 413);
+            this.ucShortestJobFirst1.TabIndex = 0;
+            // 
+            // ucRoundRobin1
+            // 
+            this.ucRoundRobin1.Location = new System.Drawing.Point(3, 2);
+            this.ucRoundRobin1.Name = "ucRoundRobin1";
+            this.ucRoundRobin1.Size = new System.Drawing.Size(857, 413);
+            this.ucRoundRobin1.TabIndex = 0;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -107,7 +137,10 @@
             this.Name = "Form1";
             this.Text = "Escalonamento";
             this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
+            this.tabPage4.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -121,6 +154,9 @@
   
         private System.Windows.Forms.TabPage tabPage4;
         private ucPrioridade ucPrioridade1;
+        private ucFifo ucFifo1;
+        private ucShortestJobFirst ucShortestJobFirst1;
+        private ucRoundRobin ucRoundRobin1;
     }
 }
 
