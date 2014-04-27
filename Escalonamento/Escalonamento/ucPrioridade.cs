@@ -12,6 +12,17 @@ namespace Escalonamento
 {
     public partial class ucPrioridade : UserControl
     {
+
+        //Contador do tempo
+        private int contadorTempo = 1;
+
+        //Controlador para os ids dos processos criados
+        private int id = 0;
+
+        //Lista de processos na memória
+        private List<Processo> listaProcessos = new List<Processo>();
+
+
         public ucPrioridade()
         {
             InitializeComponent();
@@ -51,17 +62,8 @@ namespace Escalonamento
         }
 
         
-        #region ---- Algoritimo Prioridades
-
-
-        //Contador do tempo
-        private int contadorTempo = 1;
-
-        //Controlador para os ids dos processos criados
-        private int id = 0;
-
-        //Lista de processos na memória
-        private List<Processo> listaProcessos = new List<Processo>();
+        
+      
 
         /// <summary>
         /// Adiciona processo na lista
@@ -233,7 +235,26 @@ namespace Escalonamento
             return ativo;
         }
 
+        private void cboPrioridade_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
-        #endregion
+        }
+
+        private void cboTempoExecucao_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
     }
 }

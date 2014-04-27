@@ -75,6 +75,7 @@
             this.cboTempoExecucao.Name = "cboTempoExecucao";
             this.cboTempoExecucao.Size = new System.Drawing.Size(121, 21);
             this.cboTempoExecucao.TabIndex = 15;
+            this.cboTempoExecucao.SelectedIndexChanged += new System.EventHandler(this.cboTempoExecucao_SelectedIndexChanged);
             // 
             // cboPrioridade
             // 
@@ -88,6 +89,7 @@
             this.cboPrioridade.Name = "cboPrioridade";
             this.cboPrioridade.Size = new System.Drawing.Size(121, 21);
             this.cboPrioridade.TabIndex = 14;
+            this.cboPrioridade.SelectedIndexChanged += new System.EventHandler(this.cboPrioridade_SelectedIndexChanged);
             // 
             // btnAdicionarProcesso
             // 
@@ -107,6 +109,7 @@
             this.label2.Size = new System.Drawing.Size(91, 13);
             this.label2.TabIndex = 6;
             this.label2.Text = "Tempo Execução";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label3
             // 
@@ -116,6 +119,7 @@
             this.label3.Size = new System.Drawing.Size(54, 13);
             this.label3.TabIndex = 8;
             this.label3.Text = "Prioridade";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // dgvProcessos
             // 
