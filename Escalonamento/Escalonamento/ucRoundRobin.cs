@@ -185,17 +185,22 @@ namespace Escalonamento
         /// <summary>
         /// Verifica se o item existe
         /// </summary>
-        /// <param name="item"></param>
+        /// <param name="index"></param>
         /// <returns></returns>
-        private int GetIndexProcessoAtivo(int item)
+        private int GetIndexProcessoAtivo(int index)
         {
             int ativo = -1;
-            if (item < listaProcessos.Count)
+            if (index < listaProcessos.Count)
             {
-                if (!listaProcessos[item].Ativo)
-                    ativo = GetIndexProcessoAtivo(item++);
+                if (!listaProcessos[index].Ativo)
+                {
+                    index++;
+                    ativo = GetIndexProcessoAtivo(index);
+                }
                 else
-                    ativo = item;
+                {
+                    ativo = index;
+                }
             }
             else
             {
