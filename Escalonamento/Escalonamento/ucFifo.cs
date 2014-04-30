@@ -12,11 +12,7 @@ namespace Escalonamento
 {
     public partial class ucFifo : UserControl
     {
-        public ucFifo()
-        {
-            InitializeComponent();
-        }
-
+  
         //Contador do tempo
         private int contadorTempo = 1;
 
@@ -74,21 +70,6 @@ namespace Escalonamento
         }
 
 
-        private void btnAdicionarProcesso_Click(object sender, EventArgs e)
-        {
-            id++;
-
-            listaProcessos.Add(new Processo()
-            {
-                Id = id,
-                NomeProcesso = string.Format("P{0}", id),
-                TempoExecucaoDefault = Convert.ToInt32(this.cboTempoExecucao.Text.ToString()),                
-                TempoExecucao = Convert.ToInt32(this.cboTempoExecucao.Text.ToString()),
-                Ativo = true
-            });
-
-            DataBind();
-        }
 
 
 
