@@ -123,6 +123,8 @@
             // 
             // dgvProcessos
             // 
+            this.dgvProcessos.AllowUserToAddRows = false;
+            this.dgvProcessos.AllowUserToDeleteRows = false;
             this.dgvProcessos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProcessos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Processo,
