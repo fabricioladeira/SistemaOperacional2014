@@ -60,7 +60,7 @@
             this.btnExecutar.Location = new System.Drawing.Point(694, 378);
             this.btnExecutar.Name = "btnExecutar";
             this.btnExecutar.Size = new System.Drawing.Size(157, 23);
-            this.btnExecutar.TabIndex = 5;
+            this.btnExecutar.TabIndex = 4;
             this.btnExecutar.Text = "Executar";
             this.btnExecutar.UseVisualStyleBackColor = true;
             this.btnExecutar.Click += new System.EventHandler(this.btnExecutar_Click);
@@ -118,6 +118,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.dgvProcessos);
             this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.btnExecutar);
             this.Name = "ucFifo";
             this.Size = new System.Drawing.Size(857, 413);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProcessos)).EndInit();

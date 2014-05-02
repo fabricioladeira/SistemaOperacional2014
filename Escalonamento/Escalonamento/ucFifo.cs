@@ -86,10 +86,20 @@ namespace Escalonamento
 
                 if (contadorTempo % 2 == 0)
                 {
+                    if (listaProcessos[i].Ativo == false) 
+                    {
+                        //Pega proximo da fila
+                        int tmp = i + 1;
+                        i = GetIndexProcessoAtivo(tmp);
+                    }
+
+                    /*
                     //Pega proximo da fila
                     int tmp = i + 1;
                     i = GetIndexProcessoAtivo(tmp);
 
+                     */
+                    
                     //Valida novamente todo array para verificar se não tem nenhum antes ativo.
                     if (i == -1)
                     {
