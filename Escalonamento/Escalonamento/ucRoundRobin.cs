@@ -27,42 +27,42 @@ namespace Escalonamento
             InitializeComponent();
 
 
-            listaProcessos.Add(new Processo()
-           {
-               Id = 1,
-               NomeProcesso = "P1",
-               PrioridadeDefault = 5,
-               Prioridade = 5,
-               TempoExecucaoDefault = 10,
-               TempoExecucao = 10,
-               Ativo = true
-           });
+           // listaProcessos.Add(new Processo()
+           //{
+           //    Id = 1,
+           //    NomeProcesso = "P1",
+           //    PrioridadeDefault = 5,
+           //    Prioridade = 5,
+           //    TempoExecucaoDefault = 10,
+           //    TempoExecucao = 10,
+           //    Ativo = true
+           //});
 
-            listaProcessos.Add(new Processo()
-            {
-                Id = 2,
-                NomeProcesso = "P2",
-                PrioridadeDefault = 2,
-                Prioridade = 2,
-                TempoExecucaoDefault = 6,
-                TempoExecucao = 6,
-                Ativo = true
-            });
-
-
-            listaProcessos.Add(new Processo()
-            {
-                Id = 3,
-                NomeProcesso = "P3",
-                PrioridadeDefault = 4,
-                Prioridade = 4,
-                TempoExecucaoDefault = 8,
-                TempoExecucao = 8,
-                Ativo = true
-            });
+           // listaProcessos.Add(new Processo()
+           // {
+           //     Id = 2,
+           //     NomeProcesso = "P2",
+           //     PrioridadeDefault = 2,
+           //     Prioridade = 2,
+           //     TempoExecucaoDefault = 6,
+           //     TempoExecucao = 6,
+           //     Ativo = true
+           // });
 
 
-            DataBind();
+           // listaProcessos.Add(new Processo()
+           // {
+           //     Id = 3,
+           //     NomeProcesso = "P3",
+           //     PrioridadeDefault = 4,
+           //     Prioridade = 4,
+           //     TempoExecucaoDefault = 8,
+           //     TempoExecucao = 8,
+           //     Ativo = true
+           // });
+
+
+           // DataBind();
 
         }
 
@@ -85,6 +85,8 @@ namespace Escalonamento
         /// </summary>
         private void ZerarResultados()
         {
+            contadorTempo = 1;
+
             for (int i = 0; i < listaProcessos.Count; i++)
             {
                 listaProcessos[i].Ativo = true;
@@ -98,6 +100,8 @@ namespace Escalonamento
 
         private void btnExecutar_Click(object sender, EventArgs e)
         {
+
+            ZerarResultados();
 
             int i = GetIndexProcessoAtivo();
 

@@ -19,33 +19,5 @@ namespace Escalonamento
             InitializeComponent();
         }
 
-        #region ---- FIFO (First In First Out)
-
-
-
-
-        #endregion
-
-
-        #region ---- (Shortest Job First)
-
-
-
-
-        #endregion
-
-
-
-
-
-        #region ---- Round Robin ou Circular
-
-
-
-
-        #endregion
-
-
-
     }
 }
