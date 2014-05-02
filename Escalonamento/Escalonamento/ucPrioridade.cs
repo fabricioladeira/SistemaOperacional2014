@@ -95,10 +95,8 @@ namespace Escalonamento
         {
             this.dgvProcessos.DataSource = null;
             this.dgvProcessos.DataSource = listaProcessos;
-            this.dgvProcessos.Update();
-            this.dgvProcessos.Refresh();
-            this.Update();
-            this.Refresh();
+           
+            this.dgvProcessos.Refresh();         
         }
 
 
@@ -190,9 +188,7 @@ namespace Escalonamento
 
             }
 
-            this.Update();
-            this.Refresh();
-
+   
         }
 
 
