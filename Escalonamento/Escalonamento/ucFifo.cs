@@ -42,7 +42,7 @@ namespace Escalonamento
 
 
         /// <summary>
-        /// Zera resultados para rodar denvo
+        /// Zera resultados para rodar de novo
         /// </summary>
         private void ZerarResultados()
         {
@@ -62,8 +62,46 @@ namespace Escalonamento
 
 
         private void btnExecutar_Click(object sender, EventArgs e)
-        { 
-        
+        {
+
+            int i = GetIndexProcessoAtivo();
+
+            //Executa enquanto hover processo ativo
+            while (i != -1)
+            {
+                //Decrementa o tempo de execução
+                listaProcessos[i].TempoExecucao--;
+
+                //Marca Inicio
+                if (listaProcessos[i].Inicio == 0)
+                    listaProcessos[i].Inicio = contadorTempo;
+
+                //Marca FIM              
+                listaProcessos[i].Fim = contadorTempo;
+
+
+                //Verifica se o tempo de execucao chegou a zero e inativa o processo
+                if (listaProcessos[i].TempoExecucao == 0)
+                    listaProcessos[i].Ativo = false;
+
+                if (contadorTempo % 2 == 0)
+                {
+                    //Pega proximo da fila
+                    int tmp = i + 1;
+                    i = GetIndexProcessoAtivo(tmp);
+
+                    //Valida novamente todo array para verificar se não tem nenhum antes ativo.
+                    if (i == -1)
+                    {
+                        i = GetIndexProcessoAtivo();
+                    }
+
+                }
+
+                contadorTempo++;
+                DataBind();
+
+            }
         
         
         

@@ -30,7 +30,7 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.btnExecutar_Click = new System.Windows.Forms.Button();
+            //this.btnExecutar_Click = new System.Windows.Forms.Button();
             this.ucFifo1 = new Escalonamento.ucFifo();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.ucShortestJobFirst1 = new Escalonamento.ucShortestJobFirst();
@@ -59,7 +59,7 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.btnExecutar_Click);
+            //this.tabPage1.Controls.Add(this.btnExecutar_Click);
             this.tabPage1.Controls.Add(this.ucFifo1);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
@@ -71,13 +71,13 @@
             // 
             // btnExecutar_Click
             // 
-            this.btnExecutar_Click.Location = new System.Drawing.Point(705, 376);
+          /*  this.btnExecutar_Click.Location = new System.Drawing.Point(705, 376);
             this.btnExecutar_Click.Name = "btnExecutar_Click";
             this.btnExecutar_Click.Size = new System.Drawing.Size(124, 23);
             this.btnExecutar_Click.TabIndex = 4;
             this.btnExecutar_Click.Text = "Executar";
             this.btnExecutar_Click.UseVisualStyleBackColor = true;
-            // 
+          */  // 
             // ucFifo1
             // 
             this.ucFifo1.Location = new System.Drawing.Point(4, 2);
@@ -161,14 +161,13 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.TabPage tabPage3;
-  
+        private System.Windows.Forms.TabPage tabPage3; 
         private System.Windows.Forms.TabPage tabPage4;
         private ucPrioridade ucPrioridade1;
         private ucFifo ucFifo1;
         private ucShortestJobFirst ucShortestJobFirst1;
         private ucRoundRobin ucRoundRobin1;
-        private System.Windows.Forms.Button btnExecutar_Click;
+       // private System.Windows.Forms.Button btnExecutar_Click;
     }
 }
 

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            
             this.dgvProcessos = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -41,6 +42,7 @@
             this.cboTempoExecucao = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnExecutar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProcessos)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -53,7 +55,15 @@
             this.dgvProcessos.Size = new System.Drawing.Size(854, 272);
             this.dgvProcessos.TabIndex = 7;
             // 
-
+            // btnExecutar
+            // 
+            this.btnExecutar.Location = new System.Drawing.Point(694, 378);
+            this.btnExecutar.Name = "btnExecutar";
+            this.btnExecutar.Size = new System.Drawing.Size(157, 23);
+            this.btnExecutar.TabIndex = 5;
+            this.btnExecutar.Text = "Executar";
+            this.btnExecutar.UseVisualStyleBackColor = true;
+            this.btnExecutar.Click += new System.EventHandler(this.btnExecutar_Click);
             // 
             // groupBox1
             // 
@@ -65,34 +75,33 @@
             this.groupBox1.Size = new System.Drawing.Size(845, 77);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Adicionar Processo";
+            this.groupBox1.Text = "Adicionar Processos";
             // 
             // cboTempoExecucao
             // 
             this.cboTempoExecucao.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboTempoExecucao.FormattingEnabled = true;
             this.cboTempoExecucao.Items.AddRange(new object[] {
+            "12",
             "10",
             "8",
-            "6"});
+            "6",
+            "4",
+            "2"});
             this.cboTempoExecucao.Location = new System.Drawing.Point(116, 23);
             this.cboTempoExecucao.Name = "cboTempoExecucao";
             this.cboTempoExecucao.Size = new System.Drawing.Size(121, 21);
             this.cboTempoExecucao.TabIndex = 4;
-
-
             // 
-            // button1
+            // button1 -> Adicionar processo
             // 
             this.button1.Location = new System.Drawing.Point(699, 31);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(124, 23);
             this.button1.TabIndex = 2;
-            this.button1.Text = "Adicionar Processo";
+            this.button1.Text = "Adicionar Processos";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.btnAdicionarProcesso_Click);
-
-
             // 
             // label1
             // 
@@ -101,8 +110,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(91, 13);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Tempo de Execução";
-
+            this.label1.Text = "Tempo Execução";
             // 
             // ucFifo
             // 
@@ -121,6 +129,7 @@
 
         #endregion
 
+
         private System.Windows.Forms.DataGridView dgvProcessos;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
@@ -134,6 +143,7 @@
         private System.Windows.Forms.ComboBox cboTempoExecucao;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnExecutar;   
 
     }
 }
