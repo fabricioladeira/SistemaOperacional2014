@@ -72,6 +72,13 @@ namespace Escalonamento
         /// <param name="e"></param>
         private void btnAdicionarProcesso_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(this.cboTempoExecucao.Text))
+                return;
+
+            if (string.IsNullOrEmpty(this.cboPrioridade.Text))
+                return;
+
+
             id++;
 
             listaProcessos.Add(new Processo()
