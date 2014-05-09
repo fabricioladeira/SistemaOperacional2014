@@ -65,6 +65,51 @@ namespace Escalonamento
 
         }
 
+        /// <summary>
+        /// Zera Resultados
+        /// </summary>
+        private void ZerarResultados()
+        {
+            contadorTempo = 1;
+
+            for (int i = 0; i < listaProcessos.Count; i++)
+            {
+                listaProcessos[i].Ativo = true;
+                listaProcessos[i].Espera = 0;
+                listaProcessos[i].Inicio = 0;
+                listaProcessos[i].Fim = 0;
+                listaProcessos[i].Prioridade = listaProcessos[i].PrioridadeDefault;
+                listaProcessos[i].TempoExecucao = listaProcessos[i].TempoExecucaoDefault;
+            }
+        }
+
+
+
+        /// <summary>
+        /// Soma tempo de espera nos demais processos
+        /// </summary>
+        /// <param name="indexProcessoExecutando"></param>
+        private void SomaEspera(int indexProcessoExecutando)
+        {
+            try
+            {
+                int index = 0;
+                foreach (var p in listaProcessos)
+                {
+                    if (index != indexProcessoExecutando && p.Ativo)
+                        listaProcessos[index].Espera++;
+
+                    index++;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+
+            }
+        }
+
+
 
         /// <summary>
         /// executa processos
@@ -73,6 +118,8 @@ namespace Escalonamento
         /// <param name="e"></param>
         private void btnExecutar_Click(object sender, EventArgs e)
         {
+            ZerarResultados();
+
             int i = GetIndexProcessoAtivo();
 
             //Executa enquanto hover processo ativo
@@ -110,12 +157,16 @@ namespace Escalonamento
 
                 }
 
+                SomaEspera(i);
 
                 contadorTempo++;
                 DataBind();
 
             }
         }
+
+
+
 
 
         /// <summary>

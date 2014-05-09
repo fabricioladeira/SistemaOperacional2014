@@ -98,6 +98,32 @@ namespace Escalonamento
             }
         }
 
+
+        /// <summary>
+        /// Soma tempo de espera nos demais processos
+        /// </summary>
+        /// <param name="indexProcessoExecutando"></param>
+        private void SomaEspera(int indexProcessoExecutando)
+        {
+            try
+            {
+                int index = 0;
+                foreach (var p in listaProcessos)
+                {
+                    if (index != indexProcessoExecutando && p.Ativo)
+                        listaProcessos[index].Espera++;
+
+                    index++;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+
+            }
+        }
+
+
         private void btnExecutar_Click(object sender, EventArgs e)
         {
 
@@ -136,6 +162,10 @@ namespace Escalonamento
                     }
 
                 }
+
+                //Chama método para atualizar o tempo de espera dos demais processos.
+                SomaEspera(i);
+
 
                 contadorTempo++;
                 DataBind();
@@ -215,23 +245,7 @@ namespace Escalonamento
         }
 
 
-        /// <summary>
-        /// Soma tempo de espera nos demais processos
-        /// </summary>
-        /// <param name="indexProcessoExecutando"></param>
-        private void SomaEspera(int indexProcessoExecutando)
-        {
-            int index = 0;
-            foreach (var p in listaProcessos)
-            {
-                if (index != indexProcessoExecutando && p.Ativo)
-                    listaProcessos[index].Espera++;
-
-                index++;
-            }
-        }
-
-
+       
 
 
     }

@@ -41,11 +41,10 @@ namespace Escalonamento
         }
 
 
-        /// <summary>
-        /// Zera resultados para rodar de novo
-        /// </summary>
         private void ZerarResultados()
         {
+            contadorTempo = 1;
+
             for (int i = 0; i < listaProcessos.Count; i++)
             {
                 listaProcessos[i].Ativo = true;
@@ -57,12 +56,12 @@ namespace Escalonamento
             }
         }
 
-
-
+        
 
 
         private void btnExecutar_Click(object sender, EventArgs e)
         {
+            ZerarResultados();
 
             int i = GetIndexProcessoAtivo();
 
@@ -107,6 +106,8 @@ namespace Escalonamento
                     }
 
                 }
+
+                SomaEspera(i);
 
                 contadorTempo++;
                 DataBind();
@@ -201,13 +202,21 @@ namespace Escalonamento
         /// <param name="indexProcessoExecutando"></param>
         private void SomaEspera(int indexProcessoExecutando)
         {
-            int index = 0;
-            foreach (var p in listaProcessos)
+            try
             {
-                if (index != indexProcessoExecutando && p.Ativo)
-                    listaProcessos[index].Espera++;
+                int index = 0;
+                foreach (var p in listaProcessos)
+                {
+                    if (index != indexProcessoExecutando && p.Ativo)
+                        listaProcessos[index].Espera++;
 
-                index++;
+                    index++;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+
             }
         }
 
